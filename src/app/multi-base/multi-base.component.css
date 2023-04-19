@@ -1,0 +1,11 @@
+body {
+    font-family: sans-serif;
+  }
+  html,
+  body,
+  #viewDiv {
+    height: 90vh;
+    width: 100%;
+    margin: 0px;
+  }
+  

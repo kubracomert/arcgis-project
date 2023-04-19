@@ -19,10 +19,12 @@ export class DisplayPopUpComponent implements OnInit {
       esriConfig.apiKey =
         "AAPKaf9cd193bd4e4b918b3cc3b4a202477dsn99b1gAM_a3gQ8ng5Bob8ncTxI2Q8LFbMwhFt4zpw9fN7boVKxdOQbkYB7tayGs";
 
+      // map create
       var map = new Map({
         basemap: "topo-vector",
       });
 
+      //map show
       var view = new MapView({
         container: "displayPopUp",
         map: map,
@@ -30,19 +32,24 @@ export class DisplayPopUpComponent implements OnInit {
         zoom: 5,
       });
 
+      //information in pop up window
       const popupTrailheads = {
         title: "Trailhead",
         content:
           "<b>Trail:</b> {TRL_NAME}<br><b>City:</b> {CITY_JUR}<br><b>Cross Street:</b> {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft",
       };
+      
+      //data
       const trailheads = new FeatureLayer({
         url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads_Styled/FeatureServer/0",
         outFields: ["TRL_NAME", "CITY_JUR", "X_STREET", "PARKING", "ELEV_FT"],
         popupTemplate: popupTrailheads,
       });
 
+      //added to the map
       map.add(trailheads);
 
+      //
       const popupTrails = {
         title: "Trail Information",
         content: [
@@ -69,7 +76,10 @@ export class DisplayPopUpComponent implements OnInit {
         popupTemplate: popupTrails,
       });
 
+      //added to the map
       map.add(trails, 0);
+
+      //information about the pop up
       const popupOpenspaces = {
         title: "{PARK_NAME}",
         content: [
@@ -121,6 +131,7 @@ export class DisplayPopUpComponent implements OnInit {
           },
         ],
       };
+
       const openspaces = new FeatureLayer({
         url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space_Styled/FeatureServer/0",
         outFields: [
@@ -137,6 +148,7 @@ export class DisplayPopUpComponent implements OnInit {
         popupTemplate: popupOpenspaces,
       });
 
+      //added to the map
       map.add(openspaces, 0);
     });
   }

@@ -11,6 +11,7 @@ import { SearchAddressComponent } from './search-address/search-address.componen
 import { SelectMenuComponent } from './select-menu/select-menu.component';
 import { ReverseGeocodeComponent } from './reverse-geocode/reverse-geocode.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { MultiBaseComponent } from './multi-base/multi-base.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     SelectMenuComponent,
     ReverseGeocodeComponent,
     NavigationComponent,
+    MultiBaseComponent,
   ],
   imports: [
     BrowserModule,
